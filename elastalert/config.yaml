@@ -1,0 +1,15 @@
+rules_folder: rules
+
+# Timing settings for the main Elastalert process
+run_every:
+  seconds: 20
+buffer_time:
+  minutes: 5
+
+# Elasticsearch hostname and port
+es_host: localhost
+es_port: 9200
+
+writeback_index: elastalert_status
+alert_time_limit:
+  days: 2

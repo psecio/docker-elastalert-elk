@@ -1,0 +1,29 @@
+# Alert when the rate of events exceeds a threshold
+# Rule name, must be unique
+name: Test Message Threshold
+
+# Type of alert.
+type: frequency
+
+# Index to search, wildcard supported
+index: security_log
+timestamp_field: datetime
+
+# Alert when this many documents matching the query occur within a timeframe
+num_events: 5
+
+# num_events must occur within this amount of time to trigger an alert
+timeframe:
+  minutes: 1
+
+# A list of Elasticsearch filters used for find events
+filter:
+- query:
+    query_string:
+      query: "this is a test"
+
+# The alert is use when a match is found
+alert:
+# - email
+- slack:
+    slack_webhook_url: "https://hooks.slack.com/services/[... webhook ID ...]"
